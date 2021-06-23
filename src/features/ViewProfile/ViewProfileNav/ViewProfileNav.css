@@ -1,0 +1,27 @@
+.view-profile-nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--primary-accent-light);
+  border-bottom: 1px solid var(--border-light);
+  color: var(--primary-accent-light-contrast);
+  z-index: 10;
+}
+
+.view-profile-heading {
+  width: 100%;
+  text-align: center;
+}
+
+.view-profile-heading h2 {
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 495px) {
+  .view-profile-nav {
+    width: 45%;
+  }
+}

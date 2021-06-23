@@ -1,0 +1,18 @@
+.context {
+  padding-top: 3.5rem;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.homepage {
+  width: 100vw;
+}
+
+/* @media screen and (min-width: 495px) {
+  .homepage {
+    width: 35rem !important;
+  }
+} */

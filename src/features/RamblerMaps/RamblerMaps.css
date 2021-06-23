@@ -1,0 +1,120 @@
+.rambler-maps-content {
+  width: 100%;
+  padding: 4rem 0.5rem;
+  height: 30rem;
+  /* overflow-y: auto; */
+  margin-bottom: 1rem;
+}
+
+.rambler-maps-main {
+  width: 100vw !important;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.rambler-maps-form {
+  width: 100%;
+  margin: 0rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--white);
+}
+
+.address-select,
+.date-select {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.address-select input,
+.date-select input {
+  width: 80%;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  font-size: 0.8rem;
+}
+
+.address-select label,
+.date-select label {
+  color: var(--primary-accent-light-contrast);
+  font-size: 0.8rem;
+}
+
+.rambler-maps-form button {
+  width: 40%;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  font-weight: 700;
+  background: var(--button-bg-primary);
+  color: var(--white);
+}
+
+.rambler-maps-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.rambler-post {
+  width: 95%;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.rambler-user {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.rambler-user img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.rambler-user p {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-accent-light-contrast);
+}
+
+.rambler-maps-post {
+  background: var(--text-background);
+  padding: 1rem;
+  height: 10rem;
+  display: flex;
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--white);
+  margin: 1rem 0rem;
+}
+/* 
+@media screen and (min-width: 495px) {
+  .rambler-maps-main {
+    width: 33rem !important;
+  }
+} */

@@ -1,0 +1,113 @@
+.feeds {
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.article {
+  width: 100%;
+  background: var(--white);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0rem;
+  color: var(--primary-accent-light-contrast);
+}
+
+.user-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.user-info img {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+
+.user-detail {
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.user-detail p {
+  font-weight: 800;
+}
+
+.user-detail small {
+  font-size: 0.6rem;
+}
+
+.feed-content {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.feed-content img {
+  width: 100%;
+  border-radius: 0.5rem;
+  height: 18rem;
+  object-fit: cover;
+}
+
+.feed-text-content {
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-light);
+  overflow-y: auto;
+  border-radius: 0.5rem;
+  color: var(--white);
+  background: var(--text-background);
+}
+
+.feed-text-content p {
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+
+.feed-post-desc {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.feed-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.feed-reaction {
+  display: flex;
+  width: 45%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feed-likes,
+.feed-comment {
+  display: flex;
+  width: 35%;
+  font-size: 0.8rem;
+  align-items: center;
+}
+
+.feed-likes p,
+.feed-comment p {
+  margin-left: 0.3rem;
+}

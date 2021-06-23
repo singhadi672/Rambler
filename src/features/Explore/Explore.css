@@ -1,0 +1,41 @@
+.explore {
+  /* position: fixed !important;
+  bottom: -1px;
+  left: 0; */
+  background: var(--primary-accent-light);
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: var(--primary-accent-light-contrast);
+  height: 2.7rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.item-center {
+  background: linear-gradient(120deg, var(--logo));
+  padding: 1.5rem;
+  clip-path: circle();
+  color: white;
+  border-radius: 50%;
+}
+
+.explore-active {
+  color: var(--button-bg-primary) !important;
+}
+
+/* @media screen and (min-width: 495px) {
+  .explore {
+    position: static !important;
+    flex-direction: column;
+    background: white;
+    height: 20rem;
+    width: 100%;
+    border: none;
+    border-radius: 1rem;
+  }
+
+  .explore-item {
+    font-size: 1.3rem;
+  }
+} */

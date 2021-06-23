@@ -1,13 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@700;800&family=Roboto:wght@300;400;500;700;900&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", sans-serif;
+  background: var(--primary-accent-light);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-accent-light: #fafafa;
+  --primary-accent-light-contrast: #636e8b;
+  --notification: #dd4062;
+  --logo: #96acd7, #9173b0, #f06086, #f6aa6f;
+  --white: white;
+  --button-bg-secondary: #8ed0f8;
+  --button-bg-primary: #0db2fb;
+  --border-light: rgb(228, 223, 223);
+  --text-background: #ee994c;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

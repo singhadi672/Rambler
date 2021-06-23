@@ -1,56 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import "./App.css";
+import {
+  Explore,
+  Signup,
+  Video,
+  Profile,
+  Homepage,
+  Login,
+  Comment,
+  Search,
+  ViewProfile,
+  SinglePost,
+  RamblerMaps,
+} from "./features/index";
+import { Routes, Route } from "react-router-dom";
+import { PrivateRoute } from "./util/PrivateRoute";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { login } = useSelector((state) => state.auth);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="App-main">
+      <div className="App">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <PrivateRoute exact path="/" element={<Homepage />} />
+          <PrivateRoute exact path="/profile" element={<Profile />} />
+          <PrivateRoute
+            exact
+            path="/profile/:userId"
+            element={<ViewProfile />}
+          />
+          <PrivateRoute exact path="/videos" element={<Video />} />
+          <PrivateRoute exact path="/comment/:postId" element={<Comment />} />
+          <PrivateRoute exact path="/search" element={<Search />} />
+          <PrivateRoute exact path="/post/:postId" element={<SinglePost />} />
+          <PrivateRoute exact path="/ramblerMaps" element={<RamblerMaps />} />
+        </Routes>
+      </div>
+      <div className="nav-bottom">
+        <Explore />
+      </div>
     </div>
   );
 }
