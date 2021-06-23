@@ -66,6 +66,8 @@ export const profileSlice = createSlice({
     triggerGetProfile: false,
     toggleProfileEdit: false,
     toggleLogout: false,
+    followLoader: "idle",
+    unfollowLoader: "idle",
   },
   reducers: {
     changeProfileTab: (state, action) => {
@@ -102,9 +104,17 @@ export const profileSlice = createSlice({
 
     [unfollowUser.fulfilled]: (state) => {
       state.triggerGetProfile = !state.triggerGetProfile;
+      state.unfollowLoader = "idle";
+    },
+    [unfollowUser.pending]: (state) => {
+      state.unfollowLoader = "pending";
     },
     [followUser.fulfilled]: (state) => {
       state.triggerGetProfile = !state.triggerGetProfile;
+      state.followLoader = "idle";
+    },
+    [followUser.pending]: (state) => {
+      state.followLoader = "pending";
     },
   },
 });

@@ -4,7 +4,7 @@
 }
 
 .singlepost-article {
-  width: 100%;
+  width: 90vw !important;
   background: var(--white);
   padding: 0.5rem;
   display: flex;

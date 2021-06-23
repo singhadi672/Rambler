@@ -1,6 +1,6 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./SearchBody.css";
 import { getAllUsers, filterAccounts, getUserDetails } from "../searchSlice";
@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 export default function SearchBody() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { followLoader } = useSelector((state) => state.profile);
 
   useEffect(() => {
     dispatch(getUserDetails());
@@ -57,10 +58,17 @@ export default function SearchBody() {
                   </button>
                 ) : (
                   <button
-                    style={{ background: "var(--button-bg-primary)" }}
+                    style={{
+                      background: "var(--button-bg-primary)",
+                      pointerEvents: followLoader === "pending" ? "none" : null,
+                    }}
                     onClick={() => dispatch(followUser(user._id))}
                   >
-                    Follow
+                    {followLoader === "pending" ? (
+                      <div className="login-loader"></div>
+                    ) : (
+                      "follow"
+                    )}
                   </button>
                 )}
               </div>

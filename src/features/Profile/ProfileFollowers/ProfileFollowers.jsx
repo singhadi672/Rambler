@@ -5,7 +5,7 @@ import { addFollowBackFunction } from "../../../util/addFollowBackFunction";
 import { followUser } from "../profileSlice";
 
 export default function ProfileFollowers() {
-  const { userAccount } = useSelector((state) => state.profile);
+  const { userAccount, followLoader } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
   return (
     <div className="profile-follower-main">
@@ -20,8 +20,17 @@ export default function ProfileFollowers() {
               {addFollowBackFunction(user._id, userAccount.following) ? (
                 <button className="friends">Friends</button>
               ) : (
-                <button onClick={() => dispatch(followUser(user._id))}>
-                  Follow
+                <button
+                  onClick={() => dispatch(followUser(user._id))}
+                  style={{
+                    pointerEvents: followLoader === "pending" ? "none" : null,
+                  }}
+                >
+                  {followLoader === "pending" ? (
+                    <div className="login-loader"></div>
+                  ) : (
+                    "follow"
+                  )}
                 </button>
               )}
             </div>
