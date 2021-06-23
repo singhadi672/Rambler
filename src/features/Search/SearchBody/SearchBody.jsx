@@ -1,6 +1,6 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./SearchBody.css";
 import { getAllUsers, filterAccounts, getUserDetails } from "../searchSlice";
@@ -15,6 +15,7 @@ export default function SearchBody() {
   useEffect(() => {
     dispatch(getUserDetails());
     dispatch(getAllUsers());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { userAccount, filteredAccounts } = useSelector(

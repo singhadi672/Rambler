@@ -25,7 +25,7 @@ export default function ProfileFollowers() {
                 </button>
               )}
             </div>
-          ) : userAccount.followersCount == 0 ? (
+          ) : userAccount.followersCount === 0 ? (
             <p>No Followers</p>
           ) : null
         )}

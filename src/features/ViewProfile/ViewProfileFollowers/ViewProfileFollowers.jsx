@@ -1,6 +1,6 @@
 import React from "react";
 import "./ViewProfileFollowers.css";
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 
 export default function ProfileFollowers() {
   const { viewProfileAccount } = useSelector((state) => state.viewProfile);
@@ -15,7 +15,7 @@ export default function ProfileFollowers() {
                 <p>{user.username}</p>
               </div>
             </div>
-          ) : viewProfileAccount.followersCount == 0 ? (
+          ) : viewProfileAccount.followersCount === 0 ? (
             <p>No Followers</p>
           ) : null
         )}

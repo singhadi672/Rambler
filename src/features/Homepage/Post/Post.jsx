@@ -23,6 +23,7 @@ export default function Post() {
 
   useEffect(() => {
     token && dispatch(userRefreshedPage({ token }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function createPost(data) {

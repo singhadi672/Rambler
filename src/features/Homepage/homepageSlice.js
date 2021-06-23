@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import React from "react";
 
 export const getFeed = createAsyncThunk("homepage/getFeed", async () => {
   const response = await axios.get("http://localhost:4000/feed");

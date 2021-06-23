@@ -16,6 +16,7 @@ export default function CommentBody() {
 
   useEffect(() => {
     dispatch(getCommentsForPost(postId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function postComment() {

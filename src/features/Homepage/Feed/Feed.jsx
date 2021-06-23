@@ -22,6 +22,7 @@ export default function Feed() {
   useEffect(() => {
     dispatch(getFeed());
     dispatch(getNotifications());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

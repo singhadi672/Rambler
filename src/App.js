@@ -15,10 +15,8 @@ import {
 } from "./features/index";
 import { Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./util/PrivateRoute";
-import { useSelector } from "react-redux";
 
 function App() {
-  const { login } = useSelector((state) => state.auth);
   return (
     <div className="App-main">
       <div className="App">

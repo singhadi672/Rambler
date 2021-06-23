@@ -1,7 +1,7 @@
 import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import AutoComplete from "react-google-autocomplete";
-import { createRamblerMaps, setLatLng } from "../ramblerMapSlice";
+import { createRamblerMaps} from "../ramblerMapSlice";
 import Geocode from "react-geocode";
 import { useRef, useState } from "react";
 import moment from "moment";

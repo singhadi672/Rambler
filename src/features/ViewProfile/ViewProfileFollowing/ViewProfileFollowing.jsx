@@ -1,6 +1,6 @@
 import React from "react";
 import "./ViewProfileFollowing.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function ProfileFollowers() {
   const { viewProfileAccount } = useSelector((state) => state.viewProfile);
