@@ -4,7 +4,9 @@ import axios from "axios";
 export const getProfileDetails = createAsyncThunk(
   "profile/getProfileDetails",
   async () => {
-    const response = await axios.get("http://localhost:4000/account");
+    const response = await axios.get(
+      "https://sheltered-stream-23227.herokuapp.com/account"
+    );
     return response.data;
   }
 );
@@ -13,7 +15,7 @@ export const followUser = createAsyncThunk(
   "profile/followUser",
   async (payload) => {
     const response = await axios.post(
-      `http://localhost:4000/follow/${payload}`
+      `https://sheltered-stream-23227.herokuapp.com/follow/${payload}`
     );
 
     return response.data;
@@ -24,7 +26,7 @@ export const unfollowUser = createAsyncThunk(
   "profile/unfollowUser",
   async (payload) => {
     const response = await axios.post(
-      `http://localhost:4000/follow/unfollow/${payload}`
+      `https://sheltered-stream-23227.herokuapp.com/follow/unfollow/${payload}`
     );
 
     return response.data;
@@ -35,7 +37,7 @@ export const editProfile = createAsyncThunk(
   "profile/editProfile",
   async (data) => {
     const response = await axios.post(
-      "http://localhost:4000/account/edit",
+      "https://sheltered-stream-23227.herokuapp.com/account/edit",
       data
     );
 
@@ -47,7 +49,7 @@ export const deletePost = createAsyncThunk(
   "profile/deletePost",
   async (payload) => {
     const response = await axios.post(
-      `http://localhost:4000/post/${payload}/delete`,
+      `https://sheltered-stream-23227.herokuapp.com/post/${payload}/delete`,
       payload
     );
 

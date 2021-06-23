@@ -2,14 +2,18 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getAllUsers = createAsyncThunk("search/getAllUsers", async () => {
-  const response = await axios.get("http://localhost:4000/user/all");
+  const response = await axios.get(
+    "https://sheltered-stream-23227.herokuapp.com/user/all"
+  );
   return response.data;
 });
 
 export const getUserDetails = createAsyncThunk(
   "serach/getUserDetails",
   async () => {
-    const response = await axios.get("http://localhost:4000/account");
+    const response = await axios.get(
+      "https://sheltered-stream-23227.herokuapp.com/account"
+    );
     return response.data;
   }
 );

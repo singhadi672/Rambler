@@ -19,13 +19,15 @@ export default function ImageSelect() {
 
   async function postImage({ postType, postDescription, postData }, e) {
     e.preventDefault();
-    const data = new FormData();
-    data.append("postData", postData);
-    data.append("postType", postType);
-    data.append("postDescription", postDescription);
-    const { meta } = await dispatch(createNewPost(data));
-    if (meta.requestStatus === "fulfilled") {
-      dispatch(imageBoardVisible());
+    if (postData) {
+      const data = new FormData();
+      data.append("postData", postData);
+      data.append("postType", postType);
+      data.append("postDescription", postDescription);
+      const { meta } = await dispatch(createNewPost(data));
+      if (meta.requestStatus === "fulfilled") {
+        dispatch(imageBoardVisible());
+      }
     }
   }
 

@@ -2,14 +2,19 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getFeed = createAsyncThunk("homepage/getFeed", async () => {
-  const response = await axios.get("http://localhost:4000/feed");
+  const response = await axios.get(
+    "https://sheltered-stream-23227.herokuapp.com/feed"
+  );
   return response.data;
 });
 
 export const createNewPost = createAsyncThunk(
   "homepage/createNewPost",
   async (data) => {
-    const response = await axios.post("http://localhost:4000/post/new", data);
+    const response = await axios.post(
+      "https://sheltered-stream-23227.herokuapp.com/post/new",
+      data
+    );
     return response.data;
   }
 );
@@ -18,7 +23,7 @@ export const likeButtonClicked = createAsyncThunk(
   "homepage/likeButtonClicked",
   async (payload) => {
     const response = await axios.post(
-      `http://localhost:4000/post/${payload}/like`
+      `https://sheltered-stream-23227.herokuapp.com/post/${payload}/like`
     );
     return { response: response.data, postID: payload };
   }
@@ -27,7 +32,9 @@ export const likeButtonClicked = createAsyncThunk(
 export const getNotifications = createAsyncThunk(
   "homepage/getNotifications",
   async () => {
-    const response = await axios.get("http://localhost:4000/notification");
+    const response = await axios.get(
+      "https://sheltered-stream-23227.herokuapp.com/notification"
+    );
     return response.data;
   }
 );
@@ -36,7 +43,7 @@ export const clearNotification = createAsyncThunk(
   "homepage/clearNotification",
   async (payload) => {
     const response = await axios.post(
-      `http://localhost:4000/notification/${payload}`
+      `https://sheltered-stream-23227.herokuapp.com/notification/${payload}`
     );
     return { response: response.data, notificationId: payload };
   }

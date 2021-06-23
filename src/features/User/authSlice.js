@@ -8,10 +8,13 @@ import removeTokenFromLocalStorage from "../../util/removeTokenFromLocalStorage"
 export const loginWithCredentials = createAsyncThunk(
   "auth/loginWithCredentials",
   async ({ email, password }) => {
-    const response = await axios.post("http://localhost:4000/login", {
-      email,
-      password,
-    });
+    const response = await axios.post(
+      "https://sheltered-stream-23227.herokuapp.com/login",
+      {
+        email,
+        password,
+      }
+    );
 
     console.log(response);
 
@@ -22,11 +25,14 @@ export const loginWithCredentials = createAsyncThunk(
 export const signupNewUser = createAsyncThunk(
   "auth/signupNewUser",
   async ({ email, password, username }) => {
-    const response = await axios.post("http://localhost:4000/signup", {
-      email,
-      password,
-      username,
-    });
+    const response = await axios.post(
+      "https://sheltered-stream-23227.herokuapp.com/signup",
+      {
+        email,
+        password,
+        username,
+      }
+    );
 
     return response.data;
   }
@@ -35,7 +41,9 @@ export const signupNewUser = createAsyncThunk(
 export const userRefreshedPage = createAsyncThunk(
   "auth/userRefreshedPage",
   async ({ token }) => {
-    const response = await axios.get("http://localhost:4000/user");
+    const response = await axios.get(
+      "https://sheltered-stream-23227.herokuapp.com/user"
+    );
 
     return response.data;
   }

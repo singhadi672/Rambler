@@ -4,7 +4,9 @@ import axios from "axios";
 export const getSinglePost = createAsyncThunk(
   "singlePost/getSinglePost",
   async (payload) => {
-    const response = await axios.get(`http://localhost:4000/post/${payload}`);
+    const response = await axios.get(
+      `https://sheltered-stream-23227.herokuapp.com/post/${payload}`
+    );
 
     return response.data;
   }

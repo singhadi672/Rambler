@@ -4,7 +4,9 @@ import axios from "axios";
 export const getAllRamblerMaps = createAsyncThunk(
   "ramblerMap/getAllRamblerMaps",
   async () => {
-    const response = await axios.get("http://localhost:4000/ramblerMap");
+    const response = await axios.get(
+      "https://sheltered-stream-23227.herokuapp.com/ramblerMap"
+    );
     return response.data;
   }
 );
@@ -13,7 +15,7 @@ export const createRamblerMaps = createAsyncThunk(
   "ramblerMap/createRamblerMaps",
   async (payload) => {
     const response = await axios.post(
-      "http://localhost:4000/ramblerMap/new",
+      "https://sheltered-stream-23227.herokuapp.com/ramblerMap/new",
       payload
     );
     return response.data;

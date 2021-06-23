@@ -5,7 +5,7 @@ export const getTargetUser = createAsyncThunk(
   "viewProfile/getTargetUser",
   async (payload) => {
     const response = await axios.get(
-      `http://localhost:4000/account/${payload}`
+      `https://sheltered-stream-23227.herokuapp.com/account/${payload}`
     );
     return response.data;
   }

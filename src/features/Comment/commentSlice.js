@@ -5,7 +5,7 @@ export const getCommentsForPost = createAsyncThunk(
   "comment/getCommentsForPost",
   async (payload) => {
     const response = await axios.get(
-      `http://localhost:4000/comment/${payload}`
+      `https://sheltered-stream-23227.herokuapp.com/comment/${payload}`
     );
 
     return response.data;
@@ -16,7 +16,7 @@ export const createNewComment = createAsyncThunk(
   "comment/createNewComment",
   async (payload) => {
     const response = await axios.post(
-      `http://localhost:4000/post/${payload.postID}/comment`,
+      `https://sheltered-stream-23227.herokuapp.com/post/${payload.postID}/comment`,
       { commentText: payload.commentText }
     );
 

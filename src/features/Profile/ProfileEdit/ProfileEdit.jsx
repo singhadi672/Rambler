@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { editProfile, toggleProfileEdit } from "../profileSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./ProfileEdit.css";
-import {Loader} from "../../index";
+import { Loader } from "../../index";
 
 export default function ProfileEdit() {
   const { userAccount, profileLoader } = useSelector((state) => state.profile);
