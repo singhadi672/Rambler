@@ -27,10 +27,12 @@ export default function Post() {
   }, []);
 
   async function createPost(data) {
-    const response = await dispatch(createNewPost(data));
-    const { meta } = response;
-    if (meta.requestStatus === "fulfilled") {
-      postTextRef.current.value = "";
+    if (data.postData) {
+      const response = await dispatch(createNewPost(data));
+      const { meta } = response;
+      if (meta.requestStatus === "fulfilled") {
+        postTextRef.current.value = "";
+      }
     }
   }
 
