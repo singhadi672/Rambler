@@ -5,13 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import "./SearchBody.css";
 import { getAllUsers, filterAccounts, getUserDetails } from "../searchSlice";
 import { addFollowBackFunction } from "../../../util/addFollowBackFunction";
-import { followUser } from "../../Profile/profileSlice";
+import { followUser } from "../../Search/searchSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function SearchBody() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { followLoader } = useSelector((state) => state.profile);
 
   useEffect(() => {
     dispatch(getUserDetails());
@@ -19,7 +18,7 @@ export default function SearchBody() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { userAccount, filteredAccounts } = useSelector(
+  const { userAccount, filteredAccounts, searchFollowLoader } = useSelector(
     (state) => state.search
   );
 
@@ -42,38 +41,37 @@ export default function SearchBody() {
       </div>
       <div className="search-result">
         {filteredAccounts &&
-          filteredAccounts.map((user) =>
-            user._id !== (userAccount && userAccount.user._id) ? (
-              <div className="search-user">
-                <div onClick={() => navigate(`/profile/${user._id}`)}>
-                  <img src={user.profilePicture} alt="" />
-                  <p>{user.username}</p>
-                </div>
-                {addFollowBackFunction(
-                  user._id,
-                  userAccount && userAccount.following
-                ) ? (
-                  <button style={{ background: "var(--button-bg-secondary)" }}>
-                    Following
-                  </button>
-                ) : (
-                  <button
-                    style={{
-                      background: "var(--button-bg-primary)",
-                      pointerEvents: followLoader === "pending" ? "none" : null,
-                    }}
-                    onClick={() => dispatch(followUser(user._id))}
-                  >
-                    {followLoader === "pending" ? (
-                      <div className="login-loader"></div>
-                    ) : (
-                      "follow"
-                    )}
-                  </button>
-                )}
+          filteredAccounts.map((user) => (
+            <div className="search-user" key={user._id}>
+              <div onClick={() => navigate(`/profile/${user._id}`)}>
+                <img src={user.profilePicture} alt="" />
+                <p>{user.username}</p>
               </div>
-            ) : null
-          )}
+              {addFollowBackFunction(
+                user._id,
+                userAccount && userAccount.following
+              ) ? (
+                <button style={{ background: "var(--button-bg-secondary)" }}>
+                  Following
+                </button>
+              ) : (
+                <button
+                  style={{
+                    background: "var(--button-bg-primary)",
+                    pointerEvents:
+                      searchFollowLoader === "pending" ? "none" : null,
+                  }}
+                  onClick={() => dispatch(followUser(user._id))}
+                >
+                  {searchFollowLoader === "pending" ? (
+                    <div className="login-loader"></div>
+                  ) : (
+                    "follow"
+                  )}
+                </button>
+              )}
+            </div>
+          ))}
       </div>
     </div>
   );

@@ -8,7 +8,9 @@ import "./CommentBody.css";
 import { Loader } from "../..";
 
 export default function CommentBody() {
-  const { comments, commentLoader } = useSelector((state) => state.comment);
+  const { comments, commentLoader, postCommentStatus } = useSelector(
+    (state) => state.comment
+  );
   const { user } = useSelector((state) => state.auth);
   const commentRef = useRef(null);
   const dispatch = useDispatch();
@@ -47,7 +49,18 @@ export default function CommentBody() {
           ref={commentRef}
           placeholder="Add a Comment..."
         ></textarea>
-        <button onClick={postComment}>Post</button>
+        <button
+          onClick={postComment}
+          style={{
+            pointerEvents: postCommentStatus === "pending" ? "none" : null,
+            color:
+              postCommentStatus === "pending"
+                ? "grey"
+                : "var(--button-bg-primary)",
+          }}
+        >
+          Post
+        </button>
       </div>
       <div className="comments-all">
         {comments[0] ? (

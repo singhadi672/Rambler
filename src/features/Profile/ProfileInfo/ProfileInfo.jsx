@@ -11,14 +11,15 @@ import { ProfilePost, ProfileFollowers, ProfileFollowing } from "../..";
 
 export default function ProfileInfo() {
   const dispatch = useDispatch();
-  const { userAccount, profileTab, triggerGetProfile } = useSelector(
+  const { userAccount, profileTab } = useSelector(
     (state) => state.profile
   );
 
   useEffect(() => {
     dispatch(getProfileDetails());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [triggerGetProfile]);
+  }, []);
+
 
   return userAccount ? (
     <div className="profile-info">

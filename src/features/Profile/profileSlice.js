@@ -18,7 +18,7 @@ export const followUser = createAsyncThunk(
       `https://sheltered-stream-23227.herokuapp.com/follow/${payload}`
     );
 
-    return response.data;
+    return { response: response.data, userID: payload };
   }
 );
 
@@ -29,7 +29,7 @@ export const unfollowUser = createAsyncThunk(
       `https://sheltered-stream-23227.herokuapp.com/follow/unfollow/${payload}`
     );
 
-    return response.data;
+    return { response: response.data, userID: payload };
   }
 );
 
@@ -63,7 +63,7 @@ export const profileSlice = createSlice({
     userAccount: null,
     profileLoader: "idle",
     profileTab: "profilePost",
-    triggerGetProfile: false,
+    profileEditLoader: "idle",
     toggleProfileEdit: false,
     toggleLogout: false,
     followLoader: "idle",
@@ -102,19 +102,36 @@ export const profileSlice = createSlice({
       console.log(action);
     },
 
-    [unfollowUser.fulfilled]: (state) => {
-      state.triggerGetProfile = !state.triggerGetProfile;
+    [unfollowUser.fulfilled]: (state, action) => {
       state.unfollowLoader = "idle";
+      state.userAccount.following = state.userAccount.following.filter(
+        (item) => item._id !== action.payload.userID
+      );
+      state.userAccount.followingCount -= 1;
     },
     [unfollowUser.pending]: (state) => {
       state.unfollowLoader = "pending";
     },
-    [followUser.fulfilled]: (state) => {
-      state.triggerGetProfile = !state.triggerGetProfile;
+    [followUser.fulfilled]: (state, action) => {
       state.followLoader = "idle";
+      state.userAccount.following.push(action.payload.response.user);
+      state.userAccount.followingCount += 1;
     },
     [followUser.pending]: (state) => {
       state.followLoader = "pending";
+    },
+
+    [editProfile.pending]: (state) => {
+      state.profileEditLoader = "pending";
+    },
+
+    [editProfile.fulfilled]: (state, action) => {
+      state.profileEditLoader = "idle";
+      state.userAccount.user.username = action.payload.account.user.username;
+      state.userAccount.accountDescription =
+        action.payload.account.accountDescription;
+      state.userAccount.user.profilePicture =
+        action.payload.account.user.profilePicture;
     },
   },
 });

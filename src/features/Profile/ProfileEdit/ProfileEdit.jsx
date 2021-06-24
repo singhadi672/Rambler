@@ -3,10 +3,11 @@ import { useRef } from "react";
 import { editProfile, toggleProfileEdit } from "../profileSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./ProfileEdit.css";
-import { Loader } from "../../index";
 
 export default function ProfileEdit() {
-  const { userAccount, profileLoader } = useSelector((state) => state.profile);
+  const { userAccount, profileEditLoader } = useSelector(
+    (state) => state.profile
+  );
   const dispatch = useDispatch();
   const usernameRef = useRef(null);
   const [imagePath, setImagePath] = useState(userAccount.user.profilePicture);
@@ -88,8 +89,15 @@ export default function ProfileEdit() {
                 profilePicture: profilePictureRef.current.files[0],
               })
             }
+            style={{
+              pointerEvents: profileEditLoader === "pending" ? "none" : null,
+            }}
           >
-            {profileLoader === "pending" ? <Loader /> : "Edit Profile"}
+            {profileEditLoader === "pending" ? (
+              <div className="login-loader"></div>
+            ) : (
+              "Edit Profile"
+            )}
           </button>
         </div>
       </div>

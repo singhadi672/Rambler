@@ -18,11 +18,23 @@ export const getUserDetails = createAsyncThunk(
   }
 );
 
+export const followUser = createAsyncThunk(
+  "search/followUser",
+  async (payload) => {
+    const response = await axios.post(
+      `https://sheltered-stream-23227.herokuapp.com/follow/${payload}`
+    );
+
+    return { response: response.data, userID: payload };
+  }
+);
+
 export const searchSlice = createSlice({
   name: "search",
   initialState: {
     userAccount: null,
     accounts: null,
+    searchFollowLoader: "idle",
     filteredAccounts: null,
     searchLoader: "idle",
   },
@@ -45,6 +57,15 @@ export const searchSlice = createSlice({
     },
     [getUserDetails.fulfilled]: (state, action) => {
       state.userAccount = action.payload.account;
+    },
+
+    [followUser.pending]:(state)=>{
+      state.searchFollowLoader = "pending"
+    },
+
+    [followUser.fulfilled]: (state, action) => {
+      state.searchFollowLoader = "idle";
+      state.userAccount.following.push(action.payload.response.user);
     },
   },
 });

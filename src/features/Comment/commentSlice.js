@@ -29,6 +29,7 @@ export const commentSlice = createSlice({
   initialState: {
     comments: [],
     commentLoader: "idle",
+    postCommentStatus: "idle",
   },
   extraReducers: {
     [getCommentsForPost.pending]: (state) => {
@@ -45,6 +46,10 @@ export const commentSlice = createSlice({
 
     [createNewComment.fulfilled]: (state, action) => {
       state.comments.unshift(action.payload.comment);
+      state.postCommentStatus = "idle";
+    },
+    [createNewComment.pending]: (state, action) => {
+      state.postCommentStatus = "pending";
     },
     [createNewComment.rejected]: (action) => {
       console.log(action);
