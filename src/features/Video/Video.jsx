@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import "./Video.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getVideos } from "./videoSlice";
-import {Loader} from '../'
+import { Loader } from "../";
+import { useNavigate } from "react-router-dom";
 
 export default function Video() {
   const dispatch = useDispatch();
   const { videos, videoLoader } = useSelector((state) => state.video);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getVideos());
@@ -35,7 +37,14 @@ export default function Video() {
               <p>{video.items[0].snippet.title}</p>
             </div>
           ))}
-        <button className="video-btn">Load More</button>
+        <button
+          className="video-btn"
+          onClick={() =>
+            window.open("https://wandr-view.netlify.app/", "_blank")
+          }
+        >
+          Load More
+        </button>
         {videoLoader === "pending" && <Loader />}
       </div>
     </>

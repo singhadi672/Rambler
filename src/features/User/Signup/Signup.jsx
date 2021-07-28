@@ -95,7 +95,11 @@ export default function Signup() {
           </button>
         </form>
         <p className="login-link">
-          Already a member? <span>Login</span> !
+          Already a member?{" "}
+          <span onClick={() => navigate("/login", { replace: true })}>
+            Login
+          </span>{" "}
+          !
         </p>
       </div>
     </div>

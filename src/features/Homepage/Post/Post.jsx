@@ -65,9 +65,6 @@ export default function Post() {
             >
               <FontAwesomeIcon icon={faImage} />
             </div>
-            <div className="post-option app-video">
-              <FontAwesomeIcon icon={faVideo} />
-            </div>
             <div
               className="post-option app-emoji"
               onClick={() => dispatch(emojiBoardVisible())}

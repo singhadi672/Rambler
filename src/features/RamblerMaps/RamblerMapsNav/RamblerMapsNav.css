@@ -20,9 +20,8 @@
   font-size: 1.2rem;
 }
 
-
 @media screen and (min-width: 495px) {
   .rambler-map-nav {
-    width: 34rem;
+    width: 45%;
   }
 }

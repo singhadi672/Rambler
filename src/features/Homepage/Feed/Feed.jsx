@@ -81,9 +81,6 @@ export default function Feed() {
                   <p>{feed.commentsCount}</p>
                 </div>
               </div>
-              <div className="article-bookmark">
-                <FontAwesomeIcon icon={faBookmark} />
-              </div>
             </div>
           </div>
         ))}
