@@ -1,7 +1,7 @@
 .explore {
-  /* position: fixed !important;
+  position: fixed !important;
   bottom: -1px;
-  left: 0; */
+  left: 0;
   background: var(--primary-accent-light);
   width: 100%;
   display: flex;
@@ -24,18 +24,25 @@
   color: var(--button-bg-primary) !important;
 }
 
-/* @media screen and (min-width: 495px) {
+@media screen and (min-width: 495px) {
   .explore {
-    position: static !important;
-    flex-direction: column;
-    background: white;
-    height: 20rem;
-    width: 100%;
-    border: none;
-    border-radius: 1rem;
+    margin-top: 3rem;
+    left: 25%;
+    width: 50%;
   }
 
   .explore-item {
     font-size: 1.3rem;
+    display: flex;
   }
-} */
+
+  .userDetails-explore {
+    margin-left: 3rem;
+  }
+
+  .userDetails-explore img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+}

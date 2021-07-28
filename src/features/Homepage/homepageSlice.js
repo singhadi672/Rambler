@@ -82,6 +82,7 @@ export const homepageSlice = createSlice({
     },
     [getFeed.rejected]: (state) => {
       state.feed = "error";
+      console.log(state);
     },
 
     [createNewPost.fulfilled]: (state, action) => {

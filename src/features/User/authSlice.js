@@ -16,8 +16,6 @@ export const loginWithCredentials = createAsyncThunk(
       }
     );
 
-    console.log(response);
-
     return response.data;
   }
 );
