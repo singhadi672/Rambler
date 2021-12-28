@@ -1,0 +1,15 @@
+.view-profile-content {
+  width: 100%;
+  padding-top: 4rem;
+}
+
+.view-profile {
+  width: 100vw !important;
+  height: 100%;
+}
+
+/* @media screen and (min-width: 495px) {
+  .view-profile {
+    width: 33rem !important;
+  }
+} */

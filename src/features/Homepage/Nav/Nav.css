@@ -1,0 +1,47 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0rem 1rem 0.6rem 1rem;
+  color: var(--primary-accent-light-contrast);
+  position: fixed !important;
+  width: 100%;
+  background: var(--primary-accent-light);
+  z-index: 10;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.logo h1 {
+  font-family: "Baloo Tammudu 2", sans-serif;
+  font-size: 1.5rem;
+  background: -webkit-linear-gradient(0deg, var(--logo));
+  background-clip: text;
+  height: 2rem;
+  -webkit-text-fill-color: transparent;
+}
+
+.notification {
+  display: flex;
+  position: relative;
+}
+
+.notify {
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--notification);
+  border-radius: 50%;
+  position: absolute;
+  right: -50%;
+  border: 1px solid var(--primary-accent-light);
+}
+
+.notify p {
+  color: var(--white);
+  font-size: 0.5rem;
+}
+
+@media screen and (min-width: 495px) {
+  .nav {
+    width: 45%;
+  }
+}
